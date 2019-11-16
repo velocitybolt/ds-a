@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - datastructures",
+            "request": "launch",
+            "mainClass": "datastructures",
+            "projectName": "mmeerza_35900ef8"
+        }
+    ]
+}

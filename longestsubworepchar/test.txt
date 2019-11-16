@@ -1,0 +1,3 @@
+name: react-translation
+key1: 845cf6d6428b48febcdc5e5569f3d5c7
+key2: 1438ba7efa084614a0e66fc124774824 
