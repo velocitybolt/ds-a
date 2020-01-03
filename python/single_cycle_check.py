@@ -7,7 +7,7 @@ Given an array of integers each integer reporesnts a jump of its value in the ar
 
 A cycle occurs when starting at any index in the array doing the given jumps every element is visited once
 
-before landing back on the starting index
+before landing back on the starting index. Return True if One cycle False if > 1.
 
 SI : [2, 3, 1, -4, -4, 2]
 SO: True
@@ -15,29 +15,23 @@ SO: True
 
 
 def single_cycle(array):
-    # The starting index has to be recorded to see if there has been more than one cycle
-    startingIndex = 0
-    # Elements visited needs to be recorded to keep bounds check and another way to see if there 
-    # is more than one cycle
-    elementsVisited = 0
+    startingIndex = 0 
+    elementsVisited = 0 
     while elementsVisited < len(array):
+        # this means more than one cycle because we are not at the start but we are at starting index
         if elementsVisited > 0 and startingIndex == 0:
-            # double cycle because we are not at the end of array yet
-            # being at index 0 at this point in the loop means we visited
-            # the start more than once
-            return false
-        # get next starting index
+            return False
+        
+        elementsVisited += 1
         startingIndex = getNextIndex(array, startingIndex)
-        # exit out of the loop after one run if we end up at the start index (0 in this case)
+
     return startingIndex == 0
 
 
 def getNextIndex(array, startingIndex):
-    # The purpose of this method is get the next index depending on the jump
-    # All at the sametime watching for edgecases to stay inbound
     jump = array[startingIndex]
-    nextIndex = (startingIndex + jump) % len(array)
-    return nextIndex if startingIndex >= 0 else nextIndex + len(array)
+    nextIndex = (jump + startingIndex) % len(array)
+    return nextIndex if nextIndex > 0 else nextIndex + len(array)
 
 
 
